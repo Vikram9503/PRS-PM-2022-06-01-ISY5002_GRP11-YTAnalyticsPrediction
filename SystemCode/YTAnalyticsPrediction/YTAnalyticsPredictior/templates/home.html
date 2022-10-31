@@ -1,0 +1,32 @@
+<html  style="background-color:#33475b">
+<p>&nbsp;</p>
+<head>
+    <style>
+body {
+background-color: #E6E6FA;
+}
+ </style>
+    <title>YouTube Analytics Prediction</title>
+</head>
+
+<h1 style="text-align:center"><span style="color:green;font-family:Comic Sans MS,cursive"><span style="font-size:36px"><strong>YouTube Analytics Predictor&nbsp;</strong></span></span></h1>
+ <p><img alt="YouTube Analytics Predictor" src="static/yt7.jpeg" style="border-style:solid; border-width:22px; height:200px; margin-left:2px; margin-right:2px; width:1200px" /></p>
+<div>
+
+    <h2>Upload Video to Predict view &amp; Like Counts ( Pets like Dog and Cat)</h2>
+
+<form action = "http://localhost:5000/uploader" method = "POST">
+    <input type = "file" id="usrvideofile" name = "myfile"/>
+</form>
+
+<form action="\predict" method="post">
+<button class="button button1">Predict View & Like Counts</button>
+</form>
+<pre>
+ </div>
+</br>
+<h3><span style="color:green;font-family:Comic Sans MS,cursive;text-align:center;font-size:36px">{{ prediction_text }}</span></h3>
+</br>
+<p><i>NUS-ISS MTech PRS Project - YouTube Analytics Prediction </i></p>
+
+ </html>

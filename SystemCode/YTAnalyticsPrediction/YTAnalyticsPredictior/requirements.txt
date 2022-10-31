@@ -1,0 +1,10 @@
+pythumb
+ffmpy
+pillow
+# !git clone https://github.com/mbuckler/youtube-bb.git /usr/local/lib/python3.7/dist-packages/youtube_bb
+ffmpeg
+pillow
+futures
+youtube-dl
+opencv-python
+flask
