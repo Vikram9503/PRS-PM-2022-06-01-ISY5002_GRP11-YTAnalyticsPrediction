@@ -17,7 +17,7 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         f.save(f.filename)
-        print("f.filename:"+f.filename)
+        #print("f.filename:"+f.filename)
         usrvideofile=f.filename
         upload_status = "File Uploaded"
     return render_template("home.html")
@@ -27,9 +27,7 @@ def upload_file():
 @cross_origin()
 def predict():
     if request.method == "POST":
-        pr_view_counts=21670
-        pr_like_counts=4800
-        #pr_like_counts,pr_view_counts= consumeModel.PredictLikeandView(usrvideofile)
+        pr_like_counts,pr_view_counts= consumeModel.PredictLikeandView(usrvideofile)
         #prediction_text="Your Video View Counts would be {} ".format(pr_view_counts)+" Your Video Like Counts Would be {}".format(pr_like_counts)
         #print(prediction_text)
         return render_template('home.html',prediction_text="Your Video View Counts would be {} ".format(pr_view_counts)+" &  Like Counts Would be {}".format(pr_like_counts)
