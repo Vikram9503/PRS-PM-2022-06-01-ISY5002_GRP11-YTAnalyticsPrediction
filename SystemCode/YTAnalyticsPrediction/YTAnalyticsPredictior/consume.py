@@ -56,7 +56,6 @@ def PredictLikeandView(vedio_input_arg):
     #fetch image data thumbnail
     X_test_pic=np.array(thumbnail)
 
-
     #Sliced image data
     X_sliced_video_images=[]
     for filename in os.listdir(output_base_dir):
@@ -70,12 +69,20 @@ def PredictLikeandView(vedio_input_arg):
 
     like_count_predict=100
     view_count_predict=1000
+
     #load like count model
-    loaded_like_model = load_model("SavedModels/Like_Count_Model.pb")
+    loaded_like_model = load_model("SavedModels/CNN+LSTM_models_like_count")
+    #Due to the model size, there does not exist the model file in the Git. 
+    #Please download the model files from a public folder https://drive.google.com/drive/folders/1bIWz3Yhk4uU_Xlyy3rdFWr6k90WdBM9l?usp=share_link
+    
     like_count_predict = loaded_like_model.predict([X_test_pic, X_test_stats, X_sliced_video_images])
     print('like_count_predict:'+str(like_count_predict))
+ 
     #load view count model
-    loaded_view_model = load_model("SavedModels/View_Count_Model.pb")
+    loaded_view_model = load_model("SavedModels/CNN+LSTM_models_view_count")
+    #Due to the model size, there does not exist the model file in the Git. 
+    #Please download the model files from a public folder https://drive.google.com/drive/folders/1cB9nwoSLzOheF-ne1hlE6cptHok6L-Wz?usp=share_link
+        
     view_count_predict = loaded_view_model.predict([X_test_pic, X_test_stats, X_sliced_video_images, like_count_predict])
     print('view_count_predict:'+str(view_count_predict))
     return like_count_predict,view_count_predict
